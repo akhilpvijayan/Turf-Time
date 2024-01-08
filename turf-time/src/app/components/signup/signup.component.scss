@@ -1,0 +1,27 @@
+.login {
+    min-height: 410px;
+  }
+  
+  .bg-image {
+    background-image: url('https://img.freepik.com/free-vector/cricket-fever-freehand-sketch-graphic-design-vector-illustration_460848-10884.jpg?w=740&t=st=1704707109~exp=1704707709~hmac=e5f7d847693bdaa56b3de638c9c1a755814708cea003a75db5018bd3dc344aa6');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-heading {
+    font-weight: 300;
+  }
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+  }
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 32px;
+  }
+  

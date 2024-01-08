@@ -1,0 +1,28 @@
+.login {
+    min-height: 460px;
+  }
+  
+  .bg-image {
+    background-image: url('https://img.freepik.com/free-vector/flat-design-soccer-player-silhouette_23-2149481312.jpg?w=740&t=st=1704702843~exp=1704703443~hmac=c1433493a395245e58bc35305e0d8d4670abce0023549be49741efcc7c60951e');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-heading {
+    font-weight: 300;
+  }
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 32px;
+  }
+  
+  
