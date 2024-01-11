@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Form } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { User } from '../shared/signup';
+import { User } from '../shared/interface/signup';
 
 @Component({
   selector: 'app-signup',

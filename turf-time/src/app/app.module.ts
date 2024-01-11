@@ -15,13 +15,21 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { SignupComponent } from './components/signup/signup.component';
 import {MatIconModule} from '@angular/material/icon';
+import { TurfListComponent } from './components/turf-list/turf-list.component';
+import { TurfDetailsComponent } from './components/turf-list/turf-details/turf-details.component';
+import { PartnerAddComponent } from './components/partner-add/partner-add.component';
+import { PartnerAddedDialogComponent } from './components/partner-add/partner-added-dialog/partner-added-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    TurfListComponent,
+    TurfDetailsComponent,
+    PartnerAddComponent,
+    PartnerAddedDialogComponent
   ],
   imports: [
     BrowserModule,
