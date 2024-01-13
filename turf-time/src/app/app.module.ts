@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { SignupComponent } from './components/signup/signup.component';
 import {MatIconModule} from '@angular/material/icon';
@@ -45,6 +45,7 @@ import { PartnerAddedDialogComponent } from './components/partner-add/partner-ad
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+    ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,

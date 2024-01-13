@@ -1,7 +1,4 @@
-<i
-  class="mat-close fa-regular fa-circle-xmark close-button"
-  mat-dialog-close
-></i>
+<i class="mat-close fa-regular fa-circle-xmark close-button" mat-dialog-close></i>
 <div class="container-fluid ps-md-0">
   <div class="row g-0">
     <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
@@ -11,88 +8,37 @@
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
               <!-- Sign In Form -->
-              <form
-                name="registerForm"
-                class="registerForm"
-                #form="ngForm"
-                (ngSubmit)="onSubmit(form)"
-              >
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <div class="form-floating mb-3">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter Full Name"
-                    name="fullName"
-                    id="fullName"
-                    required
-                    #FullName="ngModel"
-                    [(ngModel)]="registerForm.fullName"
-                  />
+                  <input formControlName="fullName" type="text" class="form-control" placeholder="Enter Full Name"
+                    name="fullName" id="fullName" />
                   <label for="floatingInput">Full Name</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="name@example.com"
-                    name="Username"
-                    id="username"
-                    required
-                    #Username="ngModel"
-                    [(ngModel)]="registerForm.userName"
-                  />
+                  <input formControlName="userName" type="text" class="form-control" placeholder="name@example.com"
+                    name="Username" id="username" />
                   <label for="floatingInput">Username</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input
-                    type="password"
-                    class="form-control"
-                    placeholder="Password"
-                    name="Password"
-                    id="password"
-                    required
-                    #Password="ngModel"
-                    [(ngModel)]="registerForm.password"
-                  />
+                  <input formControlName="password" type="password" class="form-control" placeholder="Password"
+                    name="Password" id="password" />
                   <label for="floatingPassword">Password</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Email"
-                    name="userEmail"
-                    id="email"
-                    required
-                    #Email="ngModel"
-                    [(ngModel)]="registerForm.email"
-                  />
+                  <input formControlName="email" type="email" class="form-control" placeholder="Email" name="userEmail"
+                    id="email" />
                   <label for="floatingEmail">Email</label>
                 </div>
                 <div class="col">
                   <div class="form-floating mb-3">
-                    <input
-                      type="number"
-                      class="form-control"
-                      placeholder="Phone"
-                      name="mobile"
-                      id="mobile"
-                      required
-                      #Mobile="ngModel"
-                      [(ngModel)]="registerForm.mobile"
-                    />
-                    <label for="floatingMobile"
-                      >Phone <span class="requred">*</span></label
-                    >
+                    <input formControlName="mobile" type="number" class="form-control" placeholder="Phone" name="mobile"
+                      id="mobile" />
+                    <label for="floatingMobile">Phone <span class="requred">*</span></label>
                   </div>
                 </div>
 
                 <div class="d-grid">
-                  <button
-                    class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
-                    type="submit"
-                    [disabled]="!(form.valid)"
-                  >
+                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">
                     Register
                   </button>
                 </div>

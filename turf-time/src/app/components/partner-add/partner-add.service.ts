@@ -1,3 +1,4 @@
+import {TurfDetails } from './../shared/interface/turfDetails';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
@@ -16,5 +17,14 @@ export class PartnerAddService {
   getDistrictsData(): Observable<any[]> {
     var states = this.firestore.collection('Districts').snapshotChanges();
     return states;
+  }
+
+  addTurfForReview(turfDetails: TurfDetails){
+    turfDetails.turfId = this.firestore.createId();
+    return this.firestore.collection('TurfDetailsTemp').add(turfDetails);
+  }
+
+  deleteTurf(turfDetails: TurfDetails){
+    return this.firestore.collection('TurfDetailsTemp').doc(turfDetails.turfId).delete();
   }
 }

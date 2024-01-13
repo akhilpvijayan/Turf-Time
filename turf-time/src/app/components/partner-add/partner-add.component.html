@@ -3,170 +3,106 @@
     <div class="col-md-9 col-lg-8 mx-auto">
       <h3 class="partner-heading">Partner With Us!</h3>
 
-      <form
-        name="partnerForm"
-        class="partnerForm"
-        #form="ngForm"
-        (ngSubmit)="onSubmit(form)"
-      >
+      <form [formGroup]="partnerForm" appDirtyOnSubmit (ngSubmit)="onSubmit()">
         <div class="row">
           <div class="col">
             <div class="form-floating mb-3">
-              <input
-                type="text"
-                class="form-control"
-                name="FacilitatorName"
-                id="facilitatorName"
-                placeholder="Facilitator Name"
-                required
-                #FacilitatorName="ngModel"
-                [(ngModel)]="partnerForm.facilitatorName"
-              />
+              <input formControlName="facilitatorName" type="text" maxlength="120"
+              showValidations class="form-control" name="FacilitatorName" id="facilitatorName"
+                placeholder="Facilitator Name" showValidations>
               <label for="floatingInput">Facilitator Name</label>
             </div>
           </div>
           <div class="col">
             <div class="form-floating mb-3">
-              <input
-                type="text"
-                class="form-control"
-                name="TurfName"
-                id="turfName"
-                placeholder="Turf Name"
-                required
-                #TurfName="ngModel"
-                [(ngModel)]="partnerForm.turfName"
-              />
+              <input formControlName="turfName" type="text" maxlength="120"
+                showValidations class="form-control" name="TurfName" id="turfName" placeholder="Turf Name" showValidations>
               <label for="floatingInput">Turf Name</label>
             </div>
           </div>
         </div>
         <div class="row">
-            <div class="col">
-              <div class="form-floating mb-3">
-                <select class="form-select" name="state" id="state" required [(ngModel)]="partnerForm.state" (change)="onStateChange()">
-                    <option *ngFor="let state of statesList" [value]="state.stateId">{{ state.state }}</option>
-                  </select>
-                <label for="floatingInput">State</label>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-floating mb-3" >
-                <select class="form-select" name="district" id="district" required [(ngModel)]="partnerForm.district" [disabled]="!isDistrictFieldEnabled">
-                    <option *ngFor="let district of districtList" [value]="district.districtId">{{ district.district }}</option>
-                  </select>
-                <label for="floatingInput">District</label>
-              </div>
+          <div class="col">
+            <div class="form-floating mb-3">
+              <select class="form-select" name="state" id="state" formControlName="state"
+                (change)="onStateChange()" showValidations>
+                <option *ngFor="let state of statesList" [value]="state.stateId">{{ state.state }}</option>
+              </select>
+              <label for="floatingInput">State</label>
             </div>
           </div>
+          <div class="col">
+            <div class="form-floating mb-3">
+              <select class="form-select" name="district" id="district" formControlName="district"
+                [disabled]="!isDistrictFieldEnabled" showValidations>
+                <option *ngFor="let district of districtList" [value]="district.districtId">{{ district.district }}
+                </option>
+              </select>
+              <label for="floatingInput">District</label>
+            </div>
+          </div>
+        </div>
         <div class="row">
-            <div class="col">
-              <div class="form-floating mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="PricePerHour"
-                  id="pricePerHour"
-                  placeholder="Price Per Hour"
-                  required
-                  #PricePerHour="ngModel"
-                  [(ngModel)]="partnerForm.pricePerHour"
-                />
-                <label for="floatingInput">Price Per Hour $</label>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-floating mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="Location"
-                  id="location"
-                  placeholder="Location"
-                  required
-                  #Location="ngModel"
-                  [(ngModel)]="partnerForm.location"
-                />
-                <label for="floatingInput">Location</label>
-              </div>
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" formControlName="pricePerHour" class="form-control" name="PricePerHour" id="pricePerHour" placeholder="Price Per Hour"
+              showValidations>
+              <label for="floatingInput">Price Per Hour $</label>
             </div>
           </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-floating mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="ImageUrl"
-                  id="imageUrl"
-                  placeholder="Image URL"
-                  required
-                  #ImageURL="ngModel"
-                  [(ngModel)]="partnerForm.imageUrl"
-                />
-                <label for="floatingInput">Image Url</label>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-floating mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="Phone"
-                  id="phone"
-                  placeholder="Phone"
-                  required
-                  #Phone="ngModel"
-                  [(ngModel)]="partnerForm.phone"
-                />
-                <label for="floatingInput">phone</label>
-              </div>
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" formControlName="location" class="form-control" name="Location" id="location" placeholder="Location" showValidations>
+              <label for="floatingInput">Location</label>
             </div>
           </div>
-          <div class="row">
-              <div class="col">
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" value=""
-                    name="IsParking"
-                    id="isParking"
-                    #IsParking="ngModel"
-                    [(ngModel)]="partnerForm.isParking">
-                    <label class="form-check-label" for="isParking">
-                      Parking
-                    </label>
-                  </div>
-              </div>
-              <div class="col">
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" value=""
-                    name="IsRestRoom"
-                    id="isRestRoom"
-                    #IsRestRoom="ngModel"
-                    [(ngModel)]="partnerForm.isRestRoom">
-                    <label class="form-check-label" for="isRestRoom">
-                      RestRoom
-                    </label>
-                  </div>
-              </div>
-              <div class="col">
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" value=""
-                    name="IsRefreshments"
-                    id="isRefreshments"
-                    #IsRefreshments="ngModel"
-                    [(ngModel)]="partnerForm.isRefreshments">
-                    <label class="form-check-label" for="isRefreshments">
-                      Refreshments
-                    </label>
-                  </div>
-              </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" formControlName="imageUrl" class="form-control" name="ImageUrl" id="imageUrl" placeholder="Image URL" showValidations>
+              <label for="floatingInput">Image Url</label>
+            </div>
           </div>
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" formControlName="phone" class="form-control" name="Phone" id="phone" placeholder="Phone" showValidations>
+              <label for="floatingInput">phone</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="textarea" formControlName="description" class="form-control" name="Description" id="description" placeholder="Description" showValidations>
+          <label for="floatingInput">Description</label>
+      </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-check mb-3">
+              <input formControlName="isParking" class="form-check-input" type="checkbox" value="" name="IsParking" id="isParking">
+              <label class="form-check-label" for="isParking">
+                Parking
+              </label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-check mb-3">
+              <input formControlName="isRestRoom" class="form-check-input" type="checkbox" value="" name="IsRestRoom" id="isRestRoom">
+              <label class="form-check-label" for="isRestRoom">
+                RestRoom
+              </label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-check mb-3">
+              <input formControlName="isRefreshments" class="form-check-input" type="checkbox" value="" name="IsRefreshments" id="isRefreshments">
+              <label class="form-check-label" for="isRefreshments">
+                Refreshments
+              </label>
+            </div>
+          </div>
+        </div>
         <div class="d-grid">
-          <button
-            class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
-            type="submit"
-            [disabled]="!(form.valid)"
-          >
+          <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">
             Apply
           </button>
           <div class="text-center"></div>

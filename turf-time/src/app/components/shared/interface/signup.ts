@@ -1,9 +1,9 @@
 export class User {
-    userId = '';
-    userName = '';
-    password = '';
-    email = '';
-    fullName = '';
-    mobile = '';
-    role = '';
+    userId!: number;
+    userName!: string;
+    password!: string;
+    email!: string;
+    fullName!: string;
+    mobile!: number;
+    role!: number;
 }

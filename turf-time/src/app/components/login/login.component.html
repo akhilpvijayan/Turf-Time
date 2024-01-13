@@ -10,15 +10,13 @@
                 <h3 class="login-heading mb-4">Welcome back!</h3>
   
                 <!-- Sign In Form -->
-                <form name ="loginForm" class="loginForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                   <div class="form-floating mb-3">
-                    <input type="email" class="form-control" name="Email" id="email" placeholder="name@example.com" required #Email="ngModel"
-                    [(ngModel)]="loginForm.email">
+                    <input formControlName="email" type="email" class="form-control" name="Email" id="email" placeholder="name@example.com">
                     <label for="floatingInput">Email</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="password" name="Password" placeholder="Password" required #Password="ngModel"
-                    [(ngModel)]="loginForm.password">
+                    <input formControlName="password" type="password" class="form-control" id="password" name="Password" placeholder="Password">
                     <label for="floatingPassword">Password</label>
                   </div>
   
@@ -30,7 +28,7 @@
                   </div>
   
                   <div class="d-grid">
-                    <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit" [disabled]="!(form.valid)">Sign in</button>
+                    <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
                     <div class="text-center">
                       <a class="small" href="#">Forgot password?</a>
                     </div>

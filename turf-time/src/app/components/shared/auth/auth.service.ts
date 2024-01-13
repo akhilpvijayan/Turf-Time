@@ -65,24 +65,23 @@ export class AuthService {
     return states;
   }
 
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: any) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
-    );
-    const userData: User = {
-      userId: user.uid,
-      email: user.email,
-      userName: user.displayName,
-      password: user.password,
-      fullName: user.fullName,
-      mobile: user.phone,
-      role: user.role
-    };
-    return userRef.set(userData, {
-      merge: true,
-    });
+  registerUser(email: string, password: string): Promise<string> {
+    return this.afAuth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential: any) => {
+        return userCredential.user.uid;
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }
+
+  addUser(userDetails: User): Promise<string>{
+    return this.firestore.collection('Users').add(userDetails)
+      .then((userCredential: any) => {
+        return userCredential;
+      })
+      .catch((error) => {
+        throw error;
+      });
   }
 }
