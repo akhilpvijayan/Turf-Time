@@ -1,0 +1,91 @@
+.back-arrow{
+    padding-left: 3%;
+    font-size: larger;
+    padding-bottom: 2%;
+}
+
+.turf-details{
+    color: white;
+}
+
+hr{
+    color: white;
+}
+
+h6{
+    color: rgba(255, 255, 255, 0.734);
+}
+
+.book-now{
+    padding: 4%;
+    width: 100%;
+}
+
+.stars {
+    display: inline-block;
+    font-size: 24px;
+    color: gold;
+}
+
+.stars::before {
+    content: "★★★★★";
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, gold 0%, gold 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stars[data-rating="1"]::before {
+    width: 20%;
+}
+
+.stars[data-rating="2"]::before {
+    width: 40%;
+}
+
+.stars[data-rating="3"]::before {
+    width: 60%;
+}
+
+.stars[data-rating="4"]::before {
+    width: 80%;
+}
+
+.stars[data-rating="5"]::before {
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    flex: 1;
+    width: 180px;
+    border: 1px solid rgb(255, 255, 255);
+    margin: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: rgba(254, 254, 254, 0.864);
+    border-radius: 5px;
+}
+
+.box img {
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .box {
+        width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        width: 80px;
+    }
+}

@@ -1,0 +1,37 @@
+.container{
+    text-align: center;
+    padding: 25px;
+    left: 0;
+}
+
+.proceed{
+    padding: 4%;
+    width: 100%;
+}
+
+.counter {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter span {
+    display: block;
+    font-size: 25px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #0052cc;
+    user-select: none;
+}
+
+.box {
+    flex: 1;
+    width: 180px;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    background-color: #029216;
+    border-radius: 5px;
+}

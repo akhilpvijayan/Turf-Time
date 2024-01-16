@@ -1,1 +1,81 @@
-<p>turf-list works!</p>
+<hr />
+<div class="container">
+            <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" name="state" id="state" formControlName="state"
+                                (change)="onStateChange()" showValidations>
+                                <option *ngFor="let state of statesList" [value]="state.stateId">
+                                    {{ state.state }}
+                                </option>
+                            </select>
+                            <label for="floatingInput">State</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" name="district" id="district" formControlName="district"
+                                [disabled]="!isDistrictFieldEnabled" showValidations>
+                                <option *ngFor="let district of districtList" [value]="district.districtId">
+                                    {{ district.district }}
+                                </option>
+                            </select>
+                            <label for="floatingInput">District</label>
+                        </div>
+                    </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i> &nbsp;<span *ngIf="isSearch">Modify </span>Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </form>
+</div>
+<hr />
+<div class="container mt-5 mb-5" *ngIf="isSearch">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10" *ngFor="let turf of turfs">
+            <div class="row p-2 bg-white border rounded turf">
+                <div class="col-md-3 mt-1">
+                    <img class="img-fluid img-responsive rounded product-image" src="{{ turf.imageUrl }}" />
+                </div>
+                <div class="col-md-6 mt-1">
+                    <h5>
+                        <b>{{ turf.turfName }}</b>
+                    </h5>
+                    <div class="d-flex flex-row">
+                        <div class="ratings mr-2">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                class="fa fa-star"></i>
+                        </div>
+                        <span>310</span>
+                    </div>
+                    <div class="mt-1 mb-1 spec-1">
+                        <span><span class="dot"></span>Football</span><span class="dot"></span><span>Cricket</span><span
+                            class="dot"></span><span>Tennis<br /></span>
+                    </div>
+                    <p class="text-justify text-truncate para mb-0">
+                        {{ turf.description }}<br /><br />
+                    </p>
+                </div>
+                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center">
+                        <h4 class="mr-1">
+                            <span>&#8377;</span>{{ turf.pricePerHour }} / Hour
+                        </h4>
+                    </div>
+                    <h6 class="text-success">{{ turf.location }}</h6>
+                    <div class="d-flex flex-column mt-4">
+                        <button class="btn btn-primary btn-sm" type="button" (click)="getTurfDetails(turf.turfId)">
+                            Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>

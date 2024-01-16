@@ -1,0 +1,43 @@
+<i class="mat-close fa-regular fa-circle-xmark close-button" mat-dialog-close></i>
+<div class="container">
+    <h3><b>{{data.turfName}}</b></h3>
+    <p>{{data.location}}</p>
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+        <div class="form-floating mb-3">
+            <select class="form-select" name="gameType" id="gameType" formControlName="gameType" showValidations>
+                <!-- <option *ngFor="let state of statesList" [value]="state.stateId">
+                    {{ data.gameType }}
+                </option> -->
+                <option value="1">Football</option>
+                <option value="2">Indoor Cricket</option>
+                <option value="3">Badmiton</option>
+            </select>
+            <label for="gameType">Sports</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input formControlName="gameDate" type="date" class="form-control" name="gamedate" id="gamedate" />
+            <label for="floatingInput">Date</label>
+        </div>
+        <div class="form-floating mb-3">
+            <select formControlName="startTime" class="form-control" id="startTime">
+                <option *ngFor="let hour of allowedHours" [value]="hour.value">{{ hour.label }}</option>
+            </select>
+            <label for="startTime">Start Time</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <div class="counter" id="counter">
+                <label for="counter">Duration : </label>
+                <span class="down" (click)='decreaseCount()'>-</span>
+                <div class="box">{{count}} Hr</div>
+                <span class="up" (click)='increaseCount()'>+</span>
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2 proceed" type="submit">
+                Proceed <span>&#8377;{{totalAmount}}</span>
+            </button>
+        </div>
+    </form>
+    <a href="#"><u>Terms and Conditions</u></a>
+</div>

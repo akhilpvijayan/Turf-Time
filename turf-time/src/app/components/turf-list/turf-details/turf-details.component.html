@@ -1,1 +1,46 @@
-<p>turf-details works!</p>
+<div class="back-arrow">
+    <i class="fa-solid fa-arrow-left-long" style="color: #ffffff;" (click)="goBack()"></i>
+</div>
+<div class="container" id="product-section">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="turf-details">
+                <h1>{{turf.turfName}}</h1>
+                <h6>Ratings : 4.3 <span class="stars" data-rating="4"></span></h6>
+
+                <img src="{{turf.imageUrl}}" alt="{{turf.turfName}}" class="image-responsive" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="turf-details">
+                <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2 book-now"
+                    (click)="bookNow()">Book Now</button>
+                <h5>Location : <span>{{turf.location}}</span></h5>
+                <div class="container">
+                    <div class="box">
+                        <img src="https://cdn-icons-png.freepik.com/128/1165/1165187.png?ga=GA1.1.587505309.1704628423&semt=ais">
+                    </div>
+                    <div class="box">
+                        <img src="https://cdn-icons-png.freepik.com/128/5023/5023365.png?ga=GA1.1.587505309.1704628423&semt=ais">
+                    </div>
+                    <div class="box">
+                        <img src="https://cdn-icons-png.freepik.com/128/12050/12050466.png?ga=GA1.1.587505309.1704628423&semt=ais">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="turf-details">
+                <hr>
+                <h5><b>About the Venue</b></h5>
+                {{turf.description}}
+                <hr>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="turf-details">
+
+            </div>
+        </div>
+    </div>
+</div>

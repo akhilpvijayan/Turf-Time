@@ -19,6 +19,7 @@ import { TurfListComponent } from './components/turf-list/turf-list.component';
 import { TurfDetailsComponent } from './components/turf-list/turf-details/turf-details.component';
 import { PartnerAddComponent } from './components/partner-add/partner-add.component';
 import { PartnerAddedDialogComponent } from './components/partner-add/partner-added-dialog/partner-added-dialog.component';
+import { BookingComponent } from './components/turf-list/turf-details/booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PartnerAddedDialogComponent } from './components/partner-add/partner-ad
     TurfListComponent,
     TurfDetailsComponent,
     PartnerAddComponent,
-    PartnerAddedDialogComponent
+    PartnerAddedDialogComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,

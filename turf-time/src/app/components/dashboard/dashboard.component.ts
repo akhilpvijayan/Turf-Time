@@ -10,6 +10,10 @@ export class DashboardComponent {
 
   constructor(private route: Router) {}
 
+  findTurf(){
+    this.route.navigateByUrl('turfs');
+  }
+
   addTurf(){
     this.route.navigateByUrl('partnership');
   }
